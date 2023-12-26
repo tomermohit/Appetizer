@@ -16,7 +16,7 @@ struct OrderView: View {
             Text("Order View")
             HStack {
                         line
-                Text("or").foregroundColor(.gray)
+                Text("or").foregroundStyle(.gray)
                         line
                     }
                 .navigationTitle("🧾 Order")
