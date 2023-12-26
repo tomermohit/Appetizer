@@ -26,10 +26,10 @@ struct AppetizerTabView: View {
                     Text("Order")
                 }
         }
-        .tint(Color.brandPrimary)
-        .onAppear() {
-            UITabBar.appearance().backgroundColor = UIColor(Color("tabBarBG"))
-        }
+       // .tint(Color.brandPrimary)
+//        .onAppear() {
+//            UITabBar.appearance().backgroundColor = UIColor(Color("tabBarBG"))
+//        }
     }
 }
 
