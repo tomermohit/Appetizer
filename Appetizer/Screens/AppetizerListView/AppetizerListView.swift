@@ -15,23 +15,23 @@ struct AppetizerListView: View {
         ZStack {
             NavigationStack {
                 List(viewModel.appetizers) { appetizer in
-                   AppetizerListCell(appetizer: appetizer)
+                    AppetizerListCell(appetizer: appetizer)
                         .onTapGesture {
                             viewModel.selectedAppetizer = appetizer
-                            viewModel.isShowingDetsil = true
+                            viewModel.isShowingDetail = true
                         }
                 }
-                .disabled(viewModel.isShowingDetsil)
+                .disabled(viewModel.isShowingDetail)
                 .navigationTitle("🍿Appetizer")
                 .listStyle(.plain)
             }
-            .onAppear {
+            .task {
                 viewModel.getAppetizers()
             }
-            .blur(radius: viewModel.isShowingDetsil ? 20 : 0)
+            .blur(radius: viewModel.isShowingDetail ? 20 : 0)
             
-            if viewModel.isShowingDetsil {
-                AppetizerDetailView(appetizer: viewModel.selectedAppetizer ?? MockData.sampleAppetizer, isShowingDetail: $viewModel.isShowingDetsil)
+            if viewModel.isShowingDetail {
+                AppetizerDetailView(appetizer: viewModel.selectedAppetizer ?? MockData.sampleAppetizer, isShowingDetail: $viewModel.isShowingDetail)
             }
             
             if viewModel.isLoading {

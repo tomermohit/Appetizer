@@ -17,41 +17,59 @@ final class NetworkManager {
     
     // MARK: - Appetizer List
     
-    func getAppetizer(completions: @escaping(Result<[Appetizer], APError>) -> Void) {
-        
+    //    func getAppetizer(completions: @escaping(Result<[Appetizer], APError>) -> Void) {
+    //        
+    //        guard let url = URL(string: appetizerURL) else {
+    //            completions(.failure(.invalidURL))
+    //            return
+    //        }
+    //        
+    //        let task = URLSession.shared.dataTask(with: URLRequest(url: url)) { data, response, error in
+    //            
+    //            if let _ = error {
+    //                completions(.failure(.unableToComplete))
+    //                return
+    //            }
+    //            
+    //            guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
+    //                completions(.failure(.invalidResponse))
+    //                return
+    //            }
+    //            
+    //            guard let data = data else {
+    //                completions(.failure(.invalidData))
+    //                return
+    //            }
+    //            
+    //            do {
+    //                let decoder = JSONDecoder()
+    //                let decoderReponse = try decoder.decode(AppetizerResponse.self, from: data)
+    //                completions(.success(decoderReponse.request))
+    //            }catch {
+    //                completions(.failure(.invalidData))
+    //            }
+    //        }
+    //        task.resume()
+    //        
+    //    }
+    
+    
+    
+    func getAppetizers() async throws -> [Appetizer] {
         guard let url = URL(string: appetizerURL) else {
-            completions(.failure(.invalidURL))
-            return
+            throw APError.invalidURL
         }
         
-        let task = URLSession.shared.dataTask(with: URLRequest(url: url)) { data, response, error in
-            
-            if let _ = error {
-                completions(.failure(.unableToComplete))
-                return
-            }
-            
-            guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
-                completions(.failure(.invalidResponse))
-                return
-            }
-            
-            guard let data = data else {
-                completions(.failure(.invalidData))
-                return
-            }
-            
-            do {
-                let decoder = JSONDecoder()
-                let decoderReponse = try decoder.decode(AppetizerResponse.self, from: data)
-                completions(.success(decoderReponse.request))
-            }catch {
-                completions(.failure(.invalidData))
-            }
-        }
-        task.resume()
+        let (data, _) = try await URLSession.shared.data(from: url)
         
+        do {
+            let decoder = JSONDecoder()
+            return try decoder.decode(AppetizerResponse.self, from: data).request
+        } catch {
+            throw APError.invalidData
+        }
     }
+    
     
     // MARK: - Appetizer Images
     

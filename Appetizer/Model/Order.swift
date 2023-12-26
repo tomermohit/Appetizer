@@ -20,7 +20,7 @@ final class Order: ObservableObject {
         items.remove(atOffsets: offSets)
     }
     
-    var totelPrice: Double {
+    var totalPrice: Double {
         items.reduce(0) { $0 + $1.price }
     }
 }
