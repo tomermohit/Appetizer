@@ -7,7 +7,7 @@
 
 import Foundation
 
-final class AppetizerListViewModel: ObservableObject {
+@MainActor final class AppetizerListViewModel: ObservableObject {
     
     @Published var appetizers: [Appetizer] = []
     @Published var alertItem: AlertItem?
