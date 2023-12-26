@@ -5,6 +5,7 @@
 //  Created by Mohit Tomer on 26/12/23.
 //
 
+
 import SwiftUI
 
 final class Order: ObservableObject {
@@ -23,3 +24,4 @@ final class Order: ObservableObject {
         items.reduce(0) { $0 + $1.price }
     }
 }
+

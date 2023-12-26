@@ -9,6 +9,7 @@ import SwiftUI
 
 struct AppetizerDetailView: View {
     
+
     @EnvironmentObject private var order: Order
     let appetizer: Appetizer
     @Binding var isShowingDetail: Bool
