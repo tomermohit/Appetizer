@@ -8,16 +8,16 @@
 import SwiftUI
 import Lottie
 
-struct FCLottieView: UIViewRepresentable {
-    var nameLottieJsonFile: String
+struct APLottieView: UIViewRepresentable {
+    var lottieJsonFileName: String
     var loopMode: LottieLoopMode = .playOnce
     var animationView = LottieAnimationView()
     var completion: (() -> Void)?
 
     // MARK: Create Animation View
-    func makeUIView(context: UIViewRepresentableContext<FCLottieView>) -> UIView {
+    func makeUIView(context: UIViewRepresentableContext<APLottieView>) -> UIView {
         let view = UIView(frame: .zero)
-        animationView.animation = LottieAnimation.named(nameLottieJsonFile)
+        animationView.animation = LottieAnimation.named(lottieJsonFileName)
         animationView.contentMode = .scaleAspectFit
         animationView.loopMode = loopMode
         animationView.play { _ in
@@ -31,5 +31,5 @@ struct FCLottieView: UIViewRepresentable {
         return view
     }
 
-    func updateUIView(_ uiView: UIView, context: UIViewRepresentableContext<FCLottieView>) {}
+    func updateUIView(_ uiView: UIView, context: UIViewRepresentableContext<APLottieView>) {}
 }

@@ -48,6 +48,7 @@ struct AccountView: View {
                         viewModel.saveChanges()
                     }label: {
                         Text("Save Changes")
+                            .fontWeight(.semibold)
                     }
                 }
                 Section("REQUESTS") {
@@ -56,7 +57,7 @@ struct AccountView: View {
                 }
                 //.toggleStyle(SwitchToggleStyle.init(tint: .brandPrimary))
             }
-                .navigationTitle("℀ Account")
+                .navigationTitle("Account")
                 .toolbar {
                     ToolbarItemGroup(placement: .keyboard) {
                         Button("Dismiss") { focusedTextField = nil }

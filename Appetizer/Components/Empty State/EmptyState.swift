@@ -17,19 +17,37 @@ struct EmptyState: View {
             Color(.systemBackground)
                 .ignoresSafeArea()
             
+            //            VStack {
+            //                Image(image)
+            //                    .resizable()
+            //                    .scaledToFit()
+            //                    .frame(height: 150)
+            //
+            //                Text(message)
+            //                    .font(.title3)
+            //                    .fontWeight(.semibold)
+            //                    .multilineTextAlignment(.center)
+            //                    .foregroundColor(.secondary)
+            //                    .padding()
+            //            }.offset(y: -50)
+            
+            
             VStack {
-                Image(image)
-                    .resizable()
-                    .scaledToFit()
-                    .frame(height: 150)
-                
+                APLottieView(lottieJsonFileName: "EmptyState.json", loopMode: .loop)
+                    .frame(minWidth: 328, minHeight: 235)
+            }
+            .offset(y: -80)
+            VStack {
                 Text(message)
                     .font(.title3)
                     .fontWeight(.semibold)
                     .multilineTextAlignment(.center)
                     .foregroundColor(.secondary)
                     .padding()
-            }.offset(y: -50)
+            }
+            .offset(y: 110)
+            
+            
         }
     }
 }
