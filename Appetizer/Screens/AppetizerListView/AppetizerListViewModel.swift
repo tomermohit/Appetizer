@@ -9,11 +9,18 @@ import Foundation
 
 @MainActor final class AppetizerListViewModel: ObservableObject {
     
-    @Published var appetizers: [Appetizer] = []
+    @Published var searchedText: String = ""
     @Published var alertItem: AlertItem?
     @Published var selectedAppetizer: Appetizer?
     @Published var isLoading = false
     @Published var isShowingDetail = false
+    
+    private var appetizers: [Appetizer] = []
+    
+    var searchAppetizer: [Appetizer] {
+        searchedText.isEmpty ? appetizers : appetizers.filter{$0.name.contains(searchedText)}
+    }
+    
     
     //    func getAppetizers() {
     //        isLoading = true

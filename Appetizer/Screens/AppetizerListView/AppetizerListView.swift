@@ -14,13 +14,14 @@ struct AppetizerListView: View {
     var body: some View {
         ZStack {
             NavigationStack {
-                List(viewModel.appetizers) { appetizer in
+                List(viewModel.searchAppetizer) { appetizer in
                     AppetizerListCell(appetizer: appetizer)
                         .onTapGesture {
                             viewModel.selectedAppetizer = appetizer
                             viewModel.isShowingDetail = true
                         }
                 }
+                .searchable(text: $viewModel.searchedText)
                 .disabled(viewModel.isShowingDetail)
                 .navigationTitle("🍿Appetizer")
                 .listStyle(.plain)
@@ -36,6 +37,11 @@ struct AppetizerListView: View {
             
             if viewModel.isLoading {
                 LoadingView()
+            }
+            
+            if (viewModel.isLoading == false) && viewModel.searchAppetizer.isEmpty {
+                APLottieView(lottieJsonFileName: "NoItemFound.json", loopMode: .loop)
+                    .aspectRatio(contentMode: .fit)
             }
         }
         .alert(item: $viewModel.alertItem) { alertItem in
