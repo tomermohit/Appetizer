@@ -11,6 +11,7 @@ import SwiftUI
 final class Order: ObservableObject {
     
     @Published var items: [Appetizer] = []
+    @Published var showFavoritesOnly = false
     
     func add(_ appetizer: Appetizer) {
         items.append(appetizer)

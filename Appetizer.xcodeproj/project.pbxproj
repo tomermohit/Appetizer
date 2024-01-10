@@ -12,7 +12,7 @@
 		A606534C2B3748900043F245 /* RemoteImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A606534B2B3748900043F245 /* RemoteImage.swift */; };
 		A60653502B37FBF60043F245 /* AppetizerDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A606534F2B37FBF60043F245 /* AppetizerDetailView.swift */; };
 		A60653522B381E560043F245 /* APButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A60653512B381E560043F245 /* APButton.swift */; };
-		A60653552B381EBA0043F245 /* XDismissButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A60653542B381EBA0043F245 /* XDismissButton.swift */; };
+		A60653552B381EBA0043F245 /* OverLayButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A60653542B381EBA0043F245 /* OverLayButton.swift */; };
 		A60653572B3856790043F245 /* AccountViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A60653562B3856790043F245 /* AccountViewModel.swift */; };
 		A60653592B38577F0043F245 /* String+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = A60653582B38577F0043F245 /* String+Ext.swift */; };
 		A606535D2B38A5550043F245 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = A606535C2B38A5550043F245 /* User.swift */; };
@@ -46,7 +46,7 @@
 		A606534B2B3748900043F245 /* RemoteImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteImage.swift; sourceTree = "<group>"; };
 		A606534F2B37FBF60043F245 /* AppetizerDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppetizerDetailView.swift; sourceTree = "<group>"; };
 		A60653512B381E560043F245 /* APButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APButton.swift; sourceTree = "<group>"; };
-		A60653542B381EBA0043F245 /* XDismissButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XDismissButton.swift; sourceTree = "<group>"; };
+		A60653542B381EBA0043F245 /* OverLayButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverLayButton.swift; sourceTree = "<group>"; };
 		A60653562B3856790043F245 /* AccountViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewModel.swift; sourceTree = "<group>"; };
 		A60653582B38577F0043F245 /* String+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Ext.swift"; sourceTree = "<group>"; };
 		A606535C2B38A5550043F245 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -124,7 +124,7 @@
 			isa = PBXGroup;
 			children = (
 				A60653512B381E560043F245 /* APButton.swift */,
-				A60653542B381EBA0043F245 /* XDismissButton.swift */,
+				A60653542B381EBA0043F245 /* OverLayButton.swift */,
 			);
 			path = Buttons;
 			sourceTree = "<group>";
@@ -364,7 +364,7 @@
 			files = (
 				A67A38282B3710B700E0E024 /* NetworkManager.swift in Sources */,
 				A67A381F2B35F6D100E0E024 /* Appetizer.swift in Sources */,
-				A60653552B381EBA0043F245 /* XDismissButton.swift in Sources */,
+				A60653552B381EBA0043F245 /* OverLayButton.swift in Sources */,
 				A60653B32B3B5A3B0043F245 /* Date+Ext.swift in Sources */,
 				A67A38212B36024200E0E024 /* AppetizerListCell.swift in Sources */,
 				A60653632B3AD0BE0043F245 /* Order.swift in Sources */,

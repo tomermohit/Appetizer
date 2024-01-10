@@ -13,12 +13,18 @@ struct AppetizerDetailView: View {
     @EnvironmentObject private var order: Order
     let appetizer: Appetizer
     @Binding var isShowingDetail: Bool
+    @State private var isFavorite = false
     
     var body: some View {
         VStack {
             AppetizerRemoteImage(urlString: appetizer.imageURL)
                 .aspectRatio(contentMode: .fill)
                 .frame(width: 300, height: 225)
+                .overlay(Button {
+                    isFavorite.toggle()
+                }label: {
+                    isFavorite ? OverLayButton(name: "heart.fill", backgroundColor: .white, foregroundColor: .red, imageScale: .medium) : OverLayButton(name: "heart", backgroundColor: .white, foregroundColor: .red, imageScale: .medium)
+                }, alignment: .bottomTrailing)
             
             VStack {
                 Text(appetizer.name)
@@ -60,7 +66,7 @@ struct AppetizerDetailView: View {
         .overlay(Button {
             isShowingDetail = false
         }label: {
-            XDismissButton()
+            OverLayButton(name: "xmark", backgroundColor: .white, foregroundColor: .black, imageScale: .small)
         }, alignment: .topTrailing)
         
     }

@@ -14,6 +14,7 @@ import Foundation
     @Published var selectedAppetizer: Appetizer?
     @Published var isLoading = false
     @Published var isShowingDetail = false
+    @Published var showFavoritesOnly = false
     
     private var appetizers: [Appetizer] = []
     

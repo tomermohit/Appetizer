@@ -10,6 +10,7 @@ import SwiftUI
 struct AppetizerListCell: View {
     
     let appetizer: Appetizer
+    @Binding var showFavoritesOnly: Bool
     
     var body: some View {
         HStack {
@@ -45,11 +46,16 @@ struct AppetizerListCell: View {
                     .fontWeight(.semibold)
             }
             .padding(.leading)
+            Spacer()
+            Image(systemName: showFavoritesOnly ? "heart.fill" : "" )
+                .padding(.top, 45)
+                .foregroundStyle(.red)
             
         }
+        //.background(.green)
     }
 }
 
 #Preview {
-    AppetizerListCell(appetizer: MockData.sampleAppetizer)
+    AppetizerListCell(appetizer: MockData.sampleAppetizer, showFavoritesOnly: .constant(true))
 }

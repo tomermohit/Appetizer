@@ -10,12 +10,19 @@ import SwiftUI
 struct AppetizerListView: View {
     
     @StateObject private var viewModel = AppetizerListViewModel()
+    //@State private var showFavoritesOnly = false
     
     var body: some View {
         ZStack {
             NavigationStack {
+                
+                Toggle("Favorites Only", isOn: $viewModel.showFavoritesOnly)
+                    .font(.title2)
+                    .fontWeight(.medium)
+                    .tint(.accent)
+                    .padding()
                 List(viewModel.searchAppetizer) { appetizer in
-                    AppetizerListCell(appetizer: appetizer)
+                    AppetizerListCell(appetizer: appetizer, showFavoritesOnly: $viewModel.showFavoritesOnly)
                         .onTapGesture {
                             viewModel.selectedAppetizer = appetizer
                             viewModel.isShowingDetail = true
